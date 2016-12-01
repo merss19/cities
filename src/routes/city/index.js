@@ -8,11 +8,12 @@
  */
 
 import React from 'react';
-import City from './City';
+
 import fetch from '../../core/fetch';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import CityItem from '../../components/CityItem';
+import { Panel, Col } from 'react-bootstrap';
 
 export default {
 
@@ -23,14 +24,11 @@ export default {
 
     let data = await response.json();
       if (!data) throw new Error('Failed to load');
-      console.log('city')
-      console.log(data )
-
 
     return {
       title: 'City',
-      component: <Layout><CityItem cityObj = {data}/></Layout>,
+      component: <Layout><CityItem cityObj = {data}/></Layout>
     };
-  },
+  }
 
 };

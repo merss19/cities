@@ -8,11 +8,9 @@
  */
 
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Cities.css';
-import { getContent as getContentAction } from '../../actions/content';
-import { selectContent } from '../../reducers/content';
+
 import { Panel, Col } from 'react-bootstrap';
 import CityItem from '../../components/CityItem';
 
@@ -34,8 +32,6 @@ class Cities extends Component {
     const { data } = this.props
 
   const cities = data.data.list
-      console.log('cities-cities')
-      console.log(data.loading)
 
     const list = cities.map((city) =>
          <Col xs={3} key={city.id}>

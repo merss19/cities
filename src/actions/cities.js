@@ -20,8 +20,6 @@ export function loadCity(url) {
 
             let data = await response.json();
 
-            console.log('indexcities')
-            console.log(data)
             dispatch({
                 type: LOAD_CITY_SUCCESS,
                 payload: {

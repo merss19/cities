@@ -27,8 +27,6 @@ class Home extends React.Component {
 
       const loading = this.props.cities.loading ? <h3 className={s.loading}>Loading</h3> : null
 
-      console.log('home')
-     console.log(this.props.cities.loading)
     return (
       <div className={s.root}>
         <div className={s.container}>

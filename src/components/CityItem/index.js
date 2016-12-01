@@ -17,12 +17,13 @@ import { Button,Col, Row, Panel } from 'react-bootstrap';
 
 class CityItem extends Component {
 
+    static propTypes = {
+        cityObj: PropTypes.object.isRequired
+    };
 
 
   render() {
       const { cityObj } = this.props
-        console.log('cityObj')
-        console.log(cityObj)
       const temp =Math.round(cityObj.main.temp -272.15) + ' C'
       return (
           <Panel className={s.item}>

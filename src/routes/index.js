@@ -22,7 +22,7 @@ export default{
         require('./register').default,
         require('./admin').default,
         require('./cities').default,
-        //require('./city').default,
+        require('./city').default,
         // Wildcard routes, e.g. { path: '*', ... } (must go last)
         require('./content').default,
         require('./notFound').default,
