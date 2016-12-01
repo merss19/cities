@@ -40,7 +40,6 @@ export function getContent({ path, locale, force }) {
     });
 
     try {
-     // const { data } = await graphqlRequest(query, { path, locale });
       dispatch({
         type: FETCH_CONTENT_SUCCESS,
         payload: {

@@ -11,40 +11,55 @@ import React, { PropTypes } from 'react';
 import { FormattedRelative } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
-
+import Link from '../../components/Link';
+import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 class Home extends React.Component {
-  static propTypes = {
+ /* static propTypes = {
     news: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
       contentSnippet: PropTypes.string,
     })).isRequired,
-  };
+  };*/
 
   render() {
+
+      const loading = this.props.cities.loading ? <h3 className={s.loading}>Loading</h3> : null
+
+      console.log('home')
+     console.log(this.props.cities.loading)
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1 className={s.title}>React.js News</h1>
-          <ul className={s.news}>
-            {this.props.news.map((item, index) => (
-              <li key={index} className={s.newsItem}>
-                <a href={item.link} className={s.newsTitle}>{item.title}</a>
-                {' '}
-                <span className={s.publishedDate}>
-                  <FormattedRelative value={item.publishedDate} />
-                </span>
-                <span
-                  className={s.newsDesc}
-                  dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
-                />
-              </li>
-            ))}
-          </ul>
+            <div className={s.btns}>
+                <Button bsSize="large" className={s.button}>
+                    <Link className={s.link} to="/cities">
+                        Cities
+                    </Link>
+                </Button>
+
+                <Button bsSize="large" className={s.button}>
+                    <Link className={s.link} to="/city">
+                        City
+                    </Link>
+                </Button>
+            </div>
+            {loading}
+
+
+
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Home);
+//export default withStyles(s)(Home);
+
+const mapState = (state) => ({
+    cities: state.cities
+});
+const EnhancedHome = connect(mapState)(Home)
+
+export default withStyles(s)(EnhancedHome);

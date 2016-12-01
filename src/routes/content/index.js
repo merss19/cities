@@ -19,6 +19,7 @@ export default {
 
   async action({ path, store }) { // eslint-disable-line react/prop-types
     try {
+
       await store.dispatch(getContent({ path }));
       const data = selectContent(store.getState(), { path });
       if (!data || !data.content) {

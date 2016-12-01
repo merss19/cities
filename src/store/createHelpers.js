@@ -41,11 +41,9 @@ function createFetchKnowingCookie({ cookie }) {
 
 export default function createHelpers(config) {
   const fetchKnowingCookie = createFetchKnowingCookie(config);
- // const graphqlRequest = createGraphqlRequest(fetchKnowingCookie);
 
   return {
     fetch: fetchKnowingCookie,
-    //graphqlRequest,
     history: config.history,
   };
 }

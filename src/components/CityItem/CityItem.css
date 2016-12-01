@@ -7,13 +7,24 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import Sequelize from 'sequelize';
-import { databaseUrl } from '../config';
+@import '../../components/variables.css';
 
-const sequelize = new Sequelize(databaseUrl, {
-  define: {
-    freezeTableName: true,
-  },
-});
+.root {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-export default sequelize;
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: var(--max-content-width);
+}
+
+
+.name{
+     float: left;
+ }
+
+.temp{
+    float: right;
+}
