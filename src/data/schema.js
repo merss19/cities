@@ -16,7 +16,7 @@ import me from './queries/me';
 import content from './queries/content';
 import news from './queries/news';
 import intl from './queries/intl';
-
+/*
 const schema = new Schema({
   query: new ObjectType({
     name: 'Query',
@@ -29,4 +29,4 @@ const schema = new Schema({
   }),
 });
 
-export default schema;
+export default schema;*/

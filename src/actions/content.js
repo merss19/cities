@@ -17,7 +17,7 @@ const query = `
 `;
 
 export function getContent({ path, locale, force }) {
-  return async (dispatch, getState, { graphqlRequest }) => {
+  return async (dispatch, getState) => {
     const state = getState();
 
     // eslint-disable-next-line no-param-reassign
@@ -36,17 +36,16 @@ export function getContent({ path, locale, force }) {
 
     dispatch({
       type: FETCH_CONTENT_START,
-      payload,
+      payload
     });
 
     try {
-      const { data } = await graphqlRequest(query, { path, locale });
+     // const { data } = await graphqlRequest(query, { path, locale });
       dispatch({
         type: FETCH_CONTENT_SUCCESS,
         payload: {
-          ...data.content,
           path,
-          locale,
+          locale
         },
       });
     } catch (error) {

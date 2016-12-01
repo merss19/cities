@@ -16,7 +16,7 @@ const query = `
 `;
 
 export function setLocale({ locale }) {
-  return async (dispatch, getState, { graphqlRequest }) => {
+  return async (dispatch, getState) => {
     dispatch({
       type: SET_LOCALE_START,
       payload: {
@@ -25,11 +25,13 @@ export function setLocale({ locale }) {
     });
 
     try {
-      const { data } = await graphqlRequest(query, { locale });
-      const messages = data.intl.reduce((msgs, msg) => {
+      //const { data } = await graphqlRequest(query, { locale });
+    /*  const messages = data.intl.reduce((msgs, msg) => {
         msgs[msg.id] = msg.message; // eslint-disable-line no-param-reassign
         return msgs;
-      }, {});
+      }, {});*/
+      const messages = []
+
       dispatch({
         type: SET_LOCALE_SUCCESS,
         payload: {
